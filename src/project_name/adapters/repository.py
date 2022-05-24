@@ -21,12 +21,6 @@ class AbstractRepository(abc.ABC, Generic[T]):
             self.seen.add(entity)
         return entity
 
-    def get_by_user(self, user_id: UUID) -> T | None:
-        entity = self._get_by_user(user_id)
-        if entity:
-            self.seen.add(entity)
-        return entity
-
     def remove(self, entity: T) -> None:
         self._remove(entity)
 
